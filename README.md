@@ -17,6 +17,7 @@
 > 音频录制
 
 **音频开始录制：** [[AudioRecorderEngine sharedAudioRecorderEngine] audioRecorderPlay];
+
 **音频结束录制：**[[AudioRecorderEngine sharedAudioRecorderEngine] audioRecorderStop];
 
 `注意`：如果自定制录制文件存储位置，首先要设置文件的路径 [[AudioRecorderEngine sharedAudioRecorderEngine] setAudioSaveFilePath:`[这里是文件存储的路径地址]`];
@@ -24,4 +25,5 @@
 >音频播放
 
 **开始播放：**[[AudioRecorderEngine sharedAudioRecorderEngine] audioPlay];
+
 **结束播放：**[[AudioRecorderEngine sharedAudioRecorderEngine] audioStop];
