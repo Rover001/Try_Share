@@ -1,7 +1,7 @@
 
 # IOS 音频录制 播放
 
-@(简单一句代码搞定)[AVAudioRecorder 录制 | AVPlayer  播放本地网络音频]
+`@(简单一句代码搞定)``[AVAudioRecorder 录制 ``AVPlayer  播放本地网络音频]`
 
 **AudioRecorderEngine**是一个单例类；
 - 控制着音频录制播放，高效快捷；
