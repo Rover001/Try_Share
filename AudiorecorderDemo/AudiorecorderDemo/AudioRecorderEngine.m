@@ -9,6 +9,8 @@
 #import "AudioRecorderEngine.h"
 
 #import "lame.h"
+#import "PathEngine.h"
+
 
 #define kRecordAudioFile @"Audio.caf"
 #define kRecordAudioMP3File @"Audio.mp3"
@@ -231,11 +233,25 @@
             lame_t lame = lame_init();
             lame_set_num_channels(lame, 2);//设置1为单通道，默认为2双通道
             lame_set_in_samplerate(lame, 8000.0);//11025.0
-            //lame_set_VBR(lame, vbr_default);
+            lame_set_VBR(lame, vbr_default);
             lame_set_brate(lame, 16);
             lame_set_mode(lame, 3);
             lame_set_quality(lame, 2); /* 2=high 5 = medium 7=low 音质*/
             lame_init_params(lame);
+            
+            // 初始化lame编码器
+//            lame_t lame = lame_init();
+//            // 设置lame mp3编码的采样率 / 声道数 / 比特率
+//            lame_set_in_samplerate(lame, 8000.0);
+//            lame_set_num_channels(lame,2);
+//            lame_set_out_samplerate(lame, 8000);
+//            lame_set_brate(lame, 8);
+//            // MP3音频质量.0~9.其中0是最好,非常慢,9是最差.
+//            lame_set_quality(lame, 7);
+//
+//            // 设置mp3的编码方式
+//            lame_set_VBR(lame, vbr_default);
+//            lame_init_params(lame);
             
             do{
                 read = fread(pcm_buffer, 2*sizeof(short int), PCM_SIZE, pcm);
@@ -438,8 +454,8 @@
     _avPlayer = nil;
     _audioPlayer = nil;
     _playerItem = nil;
-    _networkAudioPath = kMNullStr;
-    _audioPath = kMNullStr;
+    _networkAudioPath = @"";
+    _audioPath = @"";
     [self.playTimer invalidate];
     self.playTimer = nil;
 }

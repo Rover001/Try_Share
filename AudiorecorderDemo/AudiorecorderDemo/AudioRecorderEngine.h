@@ -11,14 +11,17 @@
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <AudioToolbox/AudioToolbox.h>
+
 
 typedef void(^AudioRecorderEngineSoundWaveBlock) (float progress);
 typedef void(^AudioRecorderEngineFinishBlock) (void);
 typedef void(^AudioRecorderEngineChangMP3FinishBlock) (void);
-typedef void (^AudioRecorderEngineAudioPlayFinishBlock)(void);
-typedef void (^AudioRecorderEngineAudioPlayProgressBlock)(float progress);
+typedef void(^AudioRecorderEngineAudioPlayFinishBlock)(void);
+typedef void(^AudioRecorderEngineAudioPlayProgressBlock)(float progress);
 
 #define AudioRecorder [AudioRecorderEngine sharedAudioRecorderEngine]
+
 @interface AudioRecorderEngine : NSObject
 
 #pragma mark -- 录制音频对象
